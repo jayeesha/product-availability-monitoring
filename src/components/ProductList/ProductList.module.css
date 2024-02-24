@@ -4,3 +4,9 @@
     margin-left: 40px;
     margin-top: 40px;
 }
+
+@media (max-width: 400px) {
+    .productList {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}

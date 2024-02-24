@@ -18,21 +18,6 @@
     height: auto;
 }
 
-@media (max-width: 400px) {
-    .card {
-      width: 180px;
-      padding: 10px;
-      margin-bottom: 10px;
-    }
-    .cardLogo {
-      width: 20px;
-    }
-    .cardDescription {
-      margin-top: 10px;
-      padding-bottom: 5px;
-    }
-}
-
 .cardTitle {
     font-weight: 600;
     margin-top: 25px;
@@ -42,4 +27,18 @@
     color: #8b8c96;
     margin-top: 25px;
     padding-bottom: 20px;
+}
+
+@media (max-width: 400px) {
+  .card {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .cardLogo {
+    width: 20px;
+  }
+  .cardDescription {
+    margin-top: 10px;
+    padding-bottom: 5px;
+  }
 }
