@@ -1,0 +1,45 @@
+.card {
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 40px;
+    margin-right: 40px;
+}
+
+.logoContainer {
+    display: inline-block;
+    border: 1px solid #dddddd;
+    border-radius: 7px;
+    padding: 8px;
+}
+
+.cardLogo {
+    width: 40px;
+    height: auto;
+}
+
+@media (max-width: 400px) {
+    .card {
+      width: 180px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .cardLogo {
+      width: 20px;
+    }
+    .cardDescription {
+      margin-top: 10px;
+      padding-bottom: 5px;
+    }
+}
+
+.cardTitle {
+    font-weight: 600;
+    margin-top: 25px;
+}
+  
+.cardDescription {
+    color: #8b8c96;
+    margin-top: 25px;
+    padding-bottom: 20px;
+}
