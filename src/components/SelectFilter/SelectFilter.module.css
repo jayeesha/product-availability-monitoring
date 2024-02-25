@@ -1,0 +1,39 @@
+.selectFilter {
+    display: flex;
+    width: fit-content;
+    border-radius: 25px;
+    border: 1px solid #dddddd;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.iconContainer {
+    margin-right: 10px;
+    color: #8b8c96;
+}
+
+.filterLabel {
+    color: #8b8c96;
+    text-wrap: nowrap;
+}
+
+.selectOptions {
+  position: absolute;
+  background-color: white; 
+  box-shadow: 0 1px 3px #bbbaba;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 99;
+}
+
+.selectOption {
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+    cursor: pointer;
+}
+
+.selectOption:hover {
+    background-color: #dddddd;
+    transition: background-color 0.3s ease-in-out
+}

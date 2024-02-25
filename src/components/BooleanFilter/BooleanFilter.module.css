@@ -1,18 +1,24 @@
-.filterCapsule {
+.booleanFilter {
     display: flex;
     width: fit-content;
     border-radius: 25px;
     border: 1px solid #dddddd;
     padding: 10px 20px;
     margin-right: 10px;
+    color: #8b8c96;
+    cursor: pointer;
 }
 
 .iconContainer {
     margin-right: 10px;
-    color: #8b8c96;
 }
 
 .filterLabel {
-    color: #8b8c96;
     text-wrap: nowrap;
+}
+
+.active {
+    color: #904ab7;
+    border: 1px solid #904ab7;
+    background-color: #f0e5f7;
 }
