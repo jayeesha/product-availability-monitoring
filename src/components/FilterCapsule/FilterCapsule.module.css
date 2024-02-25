@@ -1,0 +1,18 @@
+.filterCapsule {
+    display: flex;
+    width: fit-content;
+    border-radius: 25px;
+    border: 1px solid #dddddd;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+.iconContainer {
+    margin-right: 10px;
+    color: #8b8c96;
+}
+
+.filterLabel {
+    color: #8b8c96;
+    text-wrap: nowrap;
+}

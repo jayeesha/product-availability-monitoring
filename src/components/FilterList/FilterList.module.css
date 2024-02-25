@@ -1,0 +1,6 @@
+.filterList {
+    display: flex;
+    overflow: hidden;
+    margin: 40px 40px 0 40px;
+    scroll-behavior: smooth;
+}

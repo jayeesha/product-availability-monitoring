@@ -1,0 +1,21 @@
+.leftArrow {
+    border: 1px solid #dddddd;
+    border-radius: 50%;
+    padding: 10px 15px;
+    background-color: white;
+    box-shadow: 1px 5px 15px #bbbaba;
+    position: absolute;
+    cursor: pointer;
+    left: 0;
+}
+
+.rightArrow {
+    border: 1px solid #dddddd;
+    border-radius: 50%;
+    padding: 10px 15px;
+    background-color: white;
+    box-shadow: 1px 5px 15px #bbbaba;
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+}

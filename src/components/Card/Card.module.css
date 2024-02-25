@@ -7,7 +7,8 @@
 }
 
 .logoContainer {
-    display: inline-block;
+    display: flex;
+    width: fit-content;
     border: 1px solid #dddddd;
     border-radius: 7px;
     padding: 8px;
