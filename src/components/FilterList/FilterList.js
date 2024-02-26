@@ -4,7 +4,6 @@ import SelectFilter from "../SelectFilter/SelectFilter";
 import { faDesktop, faExchange, faPlus, faAngleLeft, faAngleRight, faClose } from "@fortawesome/free-solid-svg-icons";
 import BooleanFilter from "../BooleanFilter/BooleanFilter";
 import Arrow from "../Arrow/Arrow";
-import data from "../../data/Assessment_1_2.json";
 import AppliedFilter from "../AppliedFilter/AppliedFilter";
 
 function FilterList({
@@ -22,7 +21,7 @@ function FilterList({
 
   const [siteFilterOpen, setSiteFilterOpen] = useState(false);
   const [categoryFilterOpen, setCategoryFilterOpen] = useState(false);
-  const items = data.data.oneClickAutomations.items;
+
   const categories = [
     { title: "Competitive Intelligence", slug: "competitive-intelligence" },
     { title: "SEO", slug: "seo" },
