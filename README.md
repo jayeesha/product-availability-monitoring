@@ -1,12 +1,23 @@
 # Product availability monitoring
 
-In the project directory, you can run:
+## Installing Dependencies with npm
 
-### `npm start`
+1. Once repo is cloned and you're in the correct directory, run the following command to install dependencies listed in your project's `package.json` file:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   ```bash
+   npm install
+   ```
 
-### `npm test`
+2. Run the following command to start:
 
-Launches the test runner in the interactive watch mode.
+   ```bash
+   npm start
+   ```
+
+3. To compile and bundle:
+
+   ```bash
+   npm run build
+   ```
+
+Deployed here for demo: https://product-availability.netlify.app/
