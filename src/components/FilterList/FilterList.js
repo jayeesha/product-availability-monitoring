@@ -1,12 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import style from "./FilterList.module.css";
 import SelectFilter from "../SelectFilter/SelectFilter";
-import { faDesktop, faExchange, faPlus, faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { faDesktop, faExchange, faPlus, faAngleLeft, faAngleRight, faClose } from "@fortawesome/free-solid-svg-icons";
 import BooleanFilter from "../BooleanFilter/BooleanFilter";
 import Arrow from "../Arrow/Arrow";
 import data from "../../data/Assessment_1_2.json";
+import AppliedFilter from "../AppliedFilter/AppliedFilter";
 
-function FilterList({ monitorFilter, scrapeFilter, onClickMonitoring, onClickExtractData }) {
+function FilterList({
+  monitorFilter,
+  scrapeFilter,
+  onClickMonitoring,
+  onClickExtractData,
+  appliedFilters,
+  handleFilterAddition,
+  handleFilterRemoval,
+}) {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
   const containerRef = useRef(null);
@@ -14,8 +23,25 @@ function FilterList({ monitorFilter, scrapeFilter, onClickMonitoring, onClickExt
   const [siteFilterOpen, setSiteFilterOpen] = useState(false);
   const [categoryFilterOpen, setCategoryFilterOpen] = useState(false);
   const items = data.data.oneClickAutomations.items;
-  const sites = [...new Set(items.flatMap((item) => item.sites.map((site) => site.title)))];
-  const categories = [...new Set(items.flatMap((item) => item.categories.map((cat) => cat.title)))];
+  const categories = [
+    { title: "Competitive Intelligence", slug: "competitive-intelligence" },
+    { title: "SEO", slug: "seo" },
+  ];
+  const sites = [
+    { title: "LinkedIn", slug: "linkedin" },
+    { title: "ProductHunt", slug: "producthunt" },
+    { title: "Google", slug: "google" },
+    { title: "Amazon", slug: "amazon" },
+    { title: "Booking", slug: "booking" },
+    { title: "FDA", slug: "fda" },
+    { title: "Google Maps", slug: "google-maps" },
+    { title: "Pinterest", slug: "pinterest" },
+    { title: "Trip Advisor", slug: "trip-advisor" },
+    { title: "Twitter", slug: "twitter" },
+    { title: "Upwork", slug: "upwork" },
+    { title: "Craigslist", slug: "craigslist" },
+    { title: "Meetup", slug: "meetup" },
+  ];
 
   useEffect(() => {
     const container = containerRef.current;
@@ -33,7 +59,7 @@ function FilterList({ monitorFilter, scrapeFilter, onClickMonitoring, onClickExt
         window.removeEventListener("resize", updateArrows);
       };
     }
-  }, []);
+  }, [appliedFilters]);
 
   const handleLeftArrowClick = () => {
     containerRef.current.scrollLeft -= 100;
@@ -51,6 +77,14 @@ function FilterList({ monitorFilter, scrapeFilter, onClickMonitoring, onClickExt
     setCategoryFilterOpen(!categoryFilterOpen);
   };
 
+  const handleSiteFilterClose = () => {
+    setSiteFilterOpen(false);
+  };
+
+  const handleCategoryFilterClose = () => {
+    setCategoryFilterOpen(false);
+  };
+
   return (
     <div className={style.filterList} ref={containerRef}>
       {showLeftArrow && (
@@ -66,12 +100,18 @@ function FilterList({ monitorFilter, scrapeFilter, onClickMonitoring, onClickExt
         onClick={onClickExtractData}
         active={scrapeFilter}
       />
+      {appliedFilters.length > 0 &&
+        appliedFilters.map((filter) => (
+          <AppliedFilter icon={faClose} label={filter} handleFilterRemoval={handleFilterRemoval} />
+        ))}
       <SelectFilter
         icon={faPlus}
         label={"Filter by Site"}
         open={siteFilterOpen}
         options={sites}
         onClick={handleSiteFilterOpen}
+        onClose={handleSiteFilterClose}
+        handleFilterAddition={handleFilterAddition}
       />
       <SelectFilter
         icon={faPlus}
@@ -79,6 +119,8 @@ function FilterList({ monitorFilter, scrapeFilter, onClickMonitoring, onClickExt
         open={categoryFilterOpen}
         options={categories}
         onClick={handleCategoryFilterOpen}
+        onClose={handleCategoryFilterClose}
+        handleFilterAddition={handleFilterAddition}
       />
       {showRightArrow && (
         <div onClick={handleRightArrowClick}>

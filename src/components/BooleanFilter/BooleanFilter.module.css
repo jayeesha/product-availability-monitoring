@@ -4,7 +4,7 @@
     border-radius: 25px;
     border: 1px solid #dddddd;
     padding: 10px 20px;
-    margin-right: 10px;
+    margin: 0 10px 10px 0;
     color: #8b8c96;
     cursor: pointer;
 }
@@ -21,4 +21,11 @@
     color: #904ab7;
     border: 1px solid #904ab7;
     background-color: #f0e5f7;
+}
+
+.active:hover {
+    color: #691f91;
+    border: 1px solid #691f91;
+    background-color: #f0e5f7;
+    box-shadow: 1px 5px 5px #f0e5f7;
 }

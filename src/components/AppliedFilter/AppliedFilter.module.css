@@ -1,0 +1,29 @@
+.appliedFilter {
+    display: flex;
+    width: fit-content;
+    border-radius: 25px;
+    border: 1px solid #904ab7;;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #f0e5f7;
+    cursor: default;
+}
+
+.appliedFilter:hover {
+    color: #691f91;
+    border: 1px solid #691f91;
+    background-color: #f0e5f7;
+    box-shadow: 1px 5px 5px #f0e5f7;
+}
+
+.iconContainer {
+    margin-left: 10px;
+    color: #904ab7;
+    cursor: pointer;
+}
+
+.filterLabel {
+    color: #904ab7;
+    text-wrap: nowrap;
+}
+
