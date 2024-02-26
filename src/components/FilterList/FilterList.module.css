@@ -4,3 +4,8 @@
     margin: 40px 40px 0 40px;
     scroll-behavior: smooth;
 }
+
+.filterContent {
+    display: flex;
+    padding: 0 10px;
+}

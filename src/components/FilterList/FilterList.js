@@ -86,47 +86,51 @@ function FilterList({
   };
 
   return (
-    <div className={style.filterList} ref={containerRef}>
-      {showLeftArrow && (
-        <div onClick={handleLeftArrowClick}>
-          <Arrow direction={"left"} icon={faAngleLeft} />
+    <div>
+      <div className={style.filterList} ref={containerRef}>
+        {showLeftArrow && (
+          <div onClick={() => handleLeftArrowClick()}>
+            <Arrow direction={"left"} icon={faAngleLeft} />
+          </div>
+        )}
+        <div className={style.filterContent}>
+          <BooleanFilter icon={faDesktop} label={"Monitoring"} onClick={onClickMonitoring} active={monitorFilter} />
+          <BooleanFilter
+            icon={faExchange}
+            label={"Extract Data"}
+            className={"fa-rotate-90"}
+            onClick={onClickExtractData}
+            active={scrapeFilter}
+          />
+          {appliedFilters.length > 0 &&
+            appliedFilters.map((filter) => (
+              <AppliedFilter icon={faClose} label={filter} handleFilterRemoval={handleFilterRemoval} />
+            ))}
+          <SelectFilter
+            icon={faPlus}
+            label={"Filter by Site"}
+            open={siteFilterOpen}
+            options={sites}
+            onClick={handleSiteFilterOpen}
+            onClose={handleSiteFilterClose}
+            handleFilterAddition={handleFilterAddition}
+          />
+          <SelectFilter
+            icon={faPlus}
+            label={"Filter by Category"}
+            open={categoryFilterOpen}
+            options={categories}
+            onClick={handleCategoryFilterOpen}
+            onClose={handleCategoryFilterClose}
+            handleFilterAddition={handleFilterAddition}
+          />
         </div>
-      )}
-      <BooleanFilter icon={faDesktop} label={"Monitoring"} onClick={onClickMonitoring} active={monitorFilter} />
-      <BooleanFilter
-        icon={faExchange}
-        label={"Extract Data"}
-        className={"fa-rotate-90"}
-        onClick={onClickExtractData}
-        active={scrapeFilter}
-      />
-      {appliedFilters.length > 0 &&
-        appliedFilters.map((filter) => (
-          <AppliedFilter icon={faClose} label={filter} handleFilterRemoval={handleFilterRemoval} />
-        ))}
-      <SelectFilter
-        icon={faPlus}
-        label={"Filter by Site"}
-        open={siteFilterOpen}
-        options={sites}
-        onClick={handleSiteFilterOpen}
-        onClose={handleSiteFilterClose}
-        handleFilterAddition={handleFilterAddition}
-      />
-      <SelectFilter
-        icon={faPlus}
-        label={"Filter by Category"}
-        open={categoryFilterOpen}
-        options={categories}
-        onClick={handleCategoryFilterOpen}
-        onClose={handleCategoryFilterClose}
-        handleFilterAddition={handleFilterAddition}
-      />
-      {showRightArrow && (
-        <div onClick={handleRightArrowClick}>
-          <Arrow direction={"right"} icon={faAngleRight} />
-        </div>
-      )}
+        {showRightArrow && (
+          <div onClick={() => handleRightArrowClick()}>
+            <Arrow direction={"right"} icon={faAngleRight} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

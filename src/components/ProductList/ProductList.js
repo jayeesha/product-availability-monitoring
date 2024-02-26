@@ -14,10 +14,6 @@ function ProductList() {
   const categories = [...new Set(products.flatMap((item) => item.categories.map((category) => category.slug)))];
   const sites = [...new Set(products.flatMap((item) => item.sites.map((site) => site.slug)))];
 
-  // useEffect(() => {
-  //   setProductItems(products);
-  // }, []);
-
   useEffect(() => {
     const categoryFilter = appliedFilters.some((filter) => categories.some((category) => category === filter));
     const siteFilter = appliedFilters.some((filter) => sites.some((site) => site === filter));
@@ -50,6 +46,11 @@ function ProductList() {
       } else if (isMonitor && isScrape && siteFilter && !categoryFilter) {
         // Monitor, Extract and Site filter applied
         if (siteMatches) {
+          return true;
+        }
+      } else if (isScrape && categoryFilter && siteFilter && !isMonitor) {
+        // Extract, Site and Category filter applied
+        if (categoryMatches && siteMatches) {
           return true;
         }
       } else if (isMonitor && isScrape && !siteFilter && !categoryFilter) {
